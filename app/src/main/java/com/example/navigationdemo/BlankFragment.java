@@ -69,7 +69,12 @@ public class BlankFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(v);
-                navController.navigate(R.id.action_blankFragment_to_blankFragment2);
+                //这样做会避免类型不匹配问题
+                Bundle bundle = new BlankFragmentArgs.Builder()
+                        .setUserName("rose")
+                        .setAge(18)
+                        .build().toBundle();
+                navController.navigate(R.id.action_blankFragment_to_blankFragment2,bundle);
             }
         });
         return view;

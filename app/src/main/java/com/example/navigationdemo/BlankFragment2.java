@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,10 @@ public class BlankFragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank2, container, false);
         Button button =  view.findViewById(R.id.button2);
+        BlankFragmentArgs args = BlankFragmentArgs.fromBundle(getArguments());
+        String userName = args.getUserName();
+        int age = args.getAge();
+        Log.d("huhaonan",userName+","+age);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
