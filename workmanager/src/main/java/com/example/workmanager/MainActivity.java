@@ -7,6 +7,7 @@ import androidx.work.Constraints;
 import androidx.work.Data;
 import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
+import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
@@ -67,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //周期性任务
+        //周期性任务执行的时间最少不能低于15分钟
+        PeriodicWorkRequest workRequest2 = new PeriodicWorkRequest.Builder(MyWork.class,Duration.ofMinutes(15)).build();
         //取消任务
         /*new Timer().schedule(new TimerTask() {
             @Override
