@@ -21,6 +21,6 @@ public class MyWork extends Worker {
     public Result doWork() {
         SystemClock.sleep(2000);
         Log.d("hu","MyWork");
-        return Result.success();
+        return Result.retry();
     }
 }
